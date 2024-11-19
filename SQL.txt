@@ -1,0 +1,117 @@
+Q1. What is SQL?
+Ans.  SQL (Structured Query Language) is a language used to interact with and manage
+ data in relational databases. It is used to perform tasks such as querying, inserting, 
+ updating, and deleting data.
+
+ Q2.  What is a database?
+Answer. A database is a collection of data stored in an organized manner. It allows you to store,
+retrieve, and manage data efficiently. Databases can store data in tables, which consist of rows and columns.
+
+Q3. What is a table in SQL?
+Answer: A table is a collection of rows and columns used to store data in a database. Each column in a table
+represents a specific data type, and each row represents a record or entry.
+
+Q4.What is a primary key?
+Answer. A primary key is a column or set of columns in a table that uniquely identifies each record. It must contain 
+unique values and cannot contain NULL values.
+
+Q5.What is a foreign key?**
+Answer: A foreign key is a column in one table that links to the primary key in another table.
+ It is used to establish relationships between tables.
+
+ Q6. What is the difference between `SELECT` and `DISTINCT`?**
+Answer: `SELECT` is used to retrieve data from a table, while `DISTINCT` is used with `SELECT` to return only
+unique values, eliminating duplicate rows.
+
+Q7. What is a `WHERE` clause used for?
+Answer: The `WHERE` clause is used to filter records based on a condition.
+It helps you select only the rows that meet a specific criterion.
+
+Q8. What is the purpose of the `ORDER BY` clause?
+Answer:The `ORDER BY` clause is used to sort the result set of a query. You can sort the results
+in ascending (`ASC`) or descending (`DESC`) order.
+
+Q9. How do you retrieve all the records from a table?
+Answer:
+```sql
+SELECT * FROM table_name;
+ ```
+The `*` symbol is used to select all columns from the specified table.
+
+Q10. What is a `NULL` value in SQL?
+Answer: `NULL` represents a missing or unknown value in a database. It is different from an empty string or zero; 
+it means no value has been assigned.
+
+Q11. What is the difference between `=` and `IS NULL` in SQL?
+Answer: 
+     - `=` is used to compare a value to another specific value.
+     - `IS NULL` is used to check whether a value is `NULL` (i.e., it is missing or undefined).
+
+Q12. How do you count the number of rows in a table?
+Answer:
+```sql
+SELECT COUNT(*) FROM table_name;
+```
+This will return the total number of rows in the table.
+
+Q13. What is SQL, and why is it important in QA?
+This question tests your basic understanding of SQL and its role in QA.
+Answer: SQL (Structured Query Language) is a language used to manage and query data in relational databases.
+It is important in QA for tasks such as verifying data integrity, checking if data has been correctly inserted/updated, and testing database queries to ensure software behaves as expected.
+
+Q14. What is the difference between `INNER JOIN`, `LEFT JOIN`, and `RIGHT JOIN`?
+This tests your understanding of SQL joins.
+Answer:
+- `INNER JOIN`: Returns records that have matching values in both tables.
+- `LEFT JOIN`: Returns all records from the left table, and the matching records from the right table (if any).
+If there’s no match, NULL values will appear for the right table.
+- `RIGHT JOIN`: Returns all records from the right table, and the matching records from the left table (if any).
+If there’s no match, NULL values will appear for the left table.
+
+Q15. How do you check if data is correctly inserted into a database?
+This question tests your ability to validate data.
+Answer: You can use `SELECT` queries to check if the expected data is inserted. For example,
+ `SELECT * FROM table_name WHERE column_name = 'value';` to verify the 
+presence of the data. Additionally, you can check constraints (e.g., unique, not null) to ensure correct data insertion.
+
+Q16. What is normalization and denormalization in a database?
+This tests your knowledge of database design.
+Answer: Normalization: The process of organizing data in a database to reduce redundancy and dependency by dividing
+ large tables into smaller ones. This improves data consistency.
+
+Denormalization: The process of combining tables and adding redundancy to improve read performance, often used when
+you need faster query execution at the cost of increased storage and potential data anomalies.
+
+Q17. Write a SQL query to find duplicate records in a table.**
+This tests your ability to write and understand queries.
+Answer: 
+```sql
+SELECT column_name, COUNT(*) 
+FROM table_name 
+GROUP BY column_name 
+HAVING COUNT(*) > 1;
+     ```
+This query finds rows where a particular column has duplicate values.
+
+Q18. What is the difference between `WHERE` and `HAVING` clauses in SQL?**
+This tests your knowledge of filtering data.
+Answer:
+- `WHERE` is used to filter records before any grouping is applied (used with individual records).
+- `HAVING` is used to filter records after grouping, typically used with aggregate functions like `COUNT()`, `SUM()`, etc.
+
+Q19. How do you verify if a stored procedure is working as expected in a QA environment?
+This tests your approach to testing stored procedures.
+Answer: I would execute the stored procedure with different inputs and verify that the returned results are correct. 
+I would also check for edge cases, invalid inputs, and ensure that any expected exceptions or error messages are handled properly.
+
+Q20. What is an SQL injection, and how do you prevent it?
+This tests your knowledge of security concerns in SQL.
+Answer: SQL injection is a type of attack where malicious SQL code is inserted into an input field, potentially gaining 
+unauthorized access to a database. To prevent it, use prepared statements or parameterized queries, validate user inputs, and 
+avoid directly concatenating user input into SQL queries.
+
+Q21. Explain the concept of transactions in SQL.
+This tests your understanding of how transactions work in databases.
+Answer: A transaction is a sequence of SQL operations that are executed as a single unit. A transaction ensures data integrity 
+by following the ACID properties (Atomicity, Consistency, Isolation, Durability). If a transaction fails, the database can be 
+rolled back to its previous state, ensuring that no partial changes are made.
